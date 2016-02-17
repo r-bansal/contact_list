@@ -1,4 +1,5 @@
 require './contact.rb'
+require 'pry'
 
 class ContactList
   
@@ -7,8 +8,8 @@ class ContactList
   case input[0]
   when "list"
     contacts = Contact.all
-    contacts.each_with_index do |contact, index|
-      puts "#{contact.id}: #{contact.name} (#{contact.email})"
+    contacts.each do |contact|
+      puts "#{contact['id']}: #{contact['name']} (#{contact['email']})"
     end
     puts "-----------------"
     puts "#{contacts.length} records total"
@@ -22,8 +23,8 @@ class ContactList
   when "show"
     contact = Contact.find(input[1])
     if contact
-      puts "#{contact.name}"
-      puts "(#{contact.email})"
+      puts "#{contact['name']}"
+      puts "(#{contact['email']})"
     else
       puts "Contact Not Found!"
     end
