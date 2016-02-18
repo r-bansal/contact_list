@@ -7,6 +7,7 @@ class ContactList
   case input[0]
   when "list"
     contacts = Contact.all
+    # For the below line, contacts.each is sufficient since index is not being used
     contacts.each_with_index do |contact, index|
       puts "#{contact.id}: #{contact.name} (#{contact.email})"
     end
