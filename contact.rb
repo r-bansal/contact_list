@@ -33,6 +33,7 @@ class Contact
     def find(id)
       contact_list = self.all
       contact = nil
+      # for .select, you could of passed a block, also .select may return multiple items, using .find will return only one (same #search below)
       contact_list.select do |num| 
         if num.id == id.to_i
           contact = num
